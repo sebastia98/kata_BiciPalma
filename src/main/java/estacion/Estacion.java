@@ -58,4 +58,24 @@ public class Estacion {
 			}
 		}
 	}
+	public boolean leerTarjetaUsuario(TarjetaUsuario tarjetaUsuario) {
+		return tarjetaUsuario.getActivada();
+	}
+	
+	private void generarAnclaje() {
+		int posicionAnclaje = ThreadLocalRandom.current().nextInt(0, (this.numAnclajes));
+		if (this.anclajes[posicionAnclaje] != null) {
+			this.anclajes[posicionAnclaje] = null;
+		}
+		else {
+			generarAnclaje();
+		}
+	}
+	
+	public void retirarBicicleta(TarjetaUsuario tarjetaUsuario) {
+		if (tarjetaUsuario.getActivada() == true) {
+			generarAnclaje();
+		}
+			
+	}
 }
