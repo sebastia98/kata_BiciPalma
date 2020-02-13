@@ -58,6 +58,21 @@ public class Estacion {
 			}
 		}
 	}
+	
+	public void consultarAnclajes() {
+		int posicion = 1;
+		for (Bicicleta bicicleta: this.anclajes) {
+			if (bicicleta != null) {
+				System.out.println("anclaje " + posicion + " " + bicicleta.getId());
+			}
+			else {
+				System.out.println("anclaje " + posicion + " libre");
+			}
+			posicion ++;
+		}
+			
+	}
+	
 	public boolean leerTarjetaUsuario(TarjetaUsuario tarjetaUsuario) {
 		return tarjetaUsuario.getActivada();
 	}
