@@ -78,12 +78,17 @@ public class Estacion {
 	}
 	
 	private void generarAnclaje() {
+		int controlador = 0;
 		int posicionAnclaje = ThreadLocalRandom.current().nextInt(0, (this.numAnclajes));
 		if (this.anclajes[posicionAnclaje] != null) {
 			this.anclajes[posicionAnclaje] = null;
 		}
 		else {
 			generarAnclaje();
+			controlador ++;
+		}
+		if (controlador == this.numAnclajes) {
+			return;
 		}
 	}
 	
