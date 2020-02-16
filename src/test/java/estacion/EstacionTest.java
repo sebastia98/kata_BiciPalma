@@ -2,6 +2,8 @@ package estacion;
 
 import static org.junit.Assert.*;
 import estacion.Estacion;
+import tarjetaUsuario.TarjetaUsuario;
+
 import org.junit.Test;
 
 import bicicleta.Bicicleta;
@@ -34,6 +36,15 @@ public class EstacionTest {
 			anclajes[posicionAnclaje] = bicicleta;
 			posicionAnclaje ++;
 		}
+		assertArrayEquals(anclajes, estacion.getAnclajes());
+	}
+	@Test
+	public void todoanclajes() {
+		Estacion estacion = new Estacion(1, "Manacor", 6);
+		TarjetaUsuario tarjetaUsuario = new TarjetaUsuario("27", true);
+		estacion.retirarBicicleta(tarjetaUsuario);
+		Bicicleta [] anclajes;
+		anclajes = new Bicicleta[6];
 		assertArrayEquals(anclajes, estacion.getAnclajes());
 	}
 	

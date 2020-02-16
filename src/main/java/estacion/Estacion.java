@@ -27,7 +27,7 @@ public class Estacion {
 	public int getNumAnclajes() {
 		return this.numAnclajes;
 	}
-	public Object [] getAnclajes(){
+	public Bicicleta [] getAnclajes(){
 		return this.anclajes;
 	}
 	public void consultarEstacion() {
@@ -76,19 +76,19 @@ public class Estacion {
 	public boolean leerTarjetaUsuario(TarjetaUsuario tarjetaUsuario) {
 		return tarjetaUsuario.getActivada();
 	}
-	
+	/**/
 	private void generarAnclaje() {
 		int controlador = 0;
 		int posicionAnclaje = ThreadLocalRandom.current().nextInt(0, (this.numAnclajes));
-		if (this.anclajes[posicionAnclaje] != null) {
+		if (controlador == this.numAnclajes) {
+			return;
+		}
+		else if (this.anclajes[posicionAnclaje] != null) {
 			this.anclajes[posicionAnclaje] = null;
 		}
 		else {
 			generarAnclaje();
 			controlador ++;
-		}
-		if (controlador == this.numAnclajes) {
-			return;
 		}
 	}
 	
